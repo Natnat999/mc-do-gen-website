@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random McDonald Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="JsBarcode.all.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Generate a<br><span> random McDonald</span></h1>
+    <div class="display">
+        <input type="text" id="code" placeholder="Code">
+    </div>
+    <button onclick="createCode()">Generate Code</button>
+</div>
+
+
+<script>
+
+    const codeBox = document.getElementById("code");
+    const lenght = 8;
+
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
+    
+    const allChars = upperCase + numbers
+    
+ function createCode(){
+    let code = "";
+    code += upperCase[Math.floor(Math.random() * upperCase.length)];
+    code += numbers[Math.floor(Math.random() * numbers.length)];
+
+    while(lenght > code.length){
+        code += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+    codeBox.value = code;
+    JsBarcode('#barcode', code, {
+            format: 'code128',
+            displayValue: false,
+            margin: 10,
+        });
+ }
+</script>
+<div style="text-align:center;">
+    <svg id="barcode"></svg>
+</div>
+
+</body>
+</html>

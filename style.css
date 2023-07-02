@@ -53,3 +53,7 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
+.container qr{
+    display: block;
+    margin: auto;
+}
