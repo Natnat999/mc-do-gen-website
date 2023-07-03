@@ -1,50 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random McDonald Generator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="JsBarcode.all.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <h1>Generate a<br><span> random McDonald</span></h1>
-    <div class="display">
-        <input type="text" id="code" placeholder="Code">
-    </div>
-    <button onclick="createCode()">Generate Code</button>
-</div>
-
-
-<script>
-
-    const codeBox = document.getElementById("code");
-    const lenght = 8;
-
-    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numbers = "0123456789";
-    
-    const allChars = upperCase + numbers
-    
- function createCode(){
-    let code = "";
-    code += upperCase[Math.floor(Math.random() * upperCase.length)];
-    code += numbers[Math.floor(Math.random() * numbers.length)];
-
-    while(lenght > code.length){
-        code += allChars[Math.floor(Math.random() * allChars.length)];
-    }
-    codeBox.value = code;
-    JsBarcode('#barcode', code, {
-            format: 'code128',
-            displayValue: false,
-            margin: 10,
-        });
- }
-</script>
-<div style="text-align:center;">
-    <svg id="barcode"></svg>
-</div>
-
-</body>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Random McDonald Code Generator</title>
+        <link rel="stylesheet" href="assets/style.css">
+        <meta name="description" content="Generate a random McDonald code.">
+        <meta name="keywords" content="McDonald, Code, Generator, Random, McDonald Code Generator, McDonald Code, Random McDonald Code Generator">
+        <meta name="author" content="Natnat999">
+        <meta name="theme-color" content="#326947">
+        <meta property="og:title" content="Random McDonald Code Generator">
+        <meta property="og:description" content="Generate a random McDonald code.">
+        <meta property="og:url" content="https://natnat999.github.io/">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ClassyCraft3r">
+        <meta name="twitter:creator" content="@ClassyCraft3r">
+        <meta name="twitter:title" content="Random McDonald Code Generator">
+        <meta name="twitter:description" content="Generate a random McDonald code.">
+        <script src="assets/JsBarcode.all.min.js"></script>
+    </head>
+    <body>
+        <header class="container header-container">
+            <h1>Generate a<br><span>Random McDonald Code</span></h1>
+        </header>
+        <section class="container content-container">
+            <div class="container main-container">
+                <div class="display">
+                    <label for="code">Code</label>
+                    <input type="text" id="code" placeholder="Code">
+                </div>
+                <button onclick="createCode()">Generate Code</button>
+            </div>
+            <div class="barcode-container">
+                <svg id="barcode"></svg>
+            </div>
+        </section>
+        <footer>
+            <p>Created by <a href="https://classy.works">Adam Billard</a> and <a href="https://github.com/Natnat999">Natnat999</a> | All rights reserved. | We aren't responsible for the uses of this generator.</p>
+        </footer>
+        <script src="assets/main.js"></script>
+    </body>
 </html>
